@@ -1,3 +1,13 @@
+properties([
+    pipelineTriggers([
+        triggers: [
+            [
+                $class: 'jenkins.triggers.ReverseBuildTrigger',
+                upstreamProjects: "some_project", threshold: hudson.model.Result.SUCCESS
+            ]
+        ]
+    ]),
+])
 pipeline {
     agent any
 
